@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Article Search - NY</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+<div id="app" class="container-fluid">
+	<form>
+		<br>
+		<div class="form-group">
+			<label>Article  Search</label>
+			<input type="text" class="form-control" placeholder="Article Search" :value="article_search" v-model="article_search">
+		</div>
+		<button class="btn btn-primary" v-on:click.prevent="searchArticle(article_search)">Search!</button>
+	</form>
+	<br>
+	<div class="panel panel-default" v-show="articles" v-for="(article, index) in articles">
+		<div class="panel-heading"><a v-bind:href="article.web_url" target="_blank">{{article.headline.main}}</a></div>
+		<div class="panel-body" v-html="article.snippet"></div>
+	</div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+<script>
+	const MM_API_URL = 'http://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=3&q_track=love%20song&apikey=a8984e24ad9983eb122eaf6c9588dc5b';
+
+	var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json"
+
+	new Vue({
+		el: '#app',
+		data: {
+			article_search: '',
+			articles: '',
+		},
+		watch: {
+			// article_search: function () {
+			// 	this.searchArticle(this.article_search)
+			// }
+		},
+		methods: {
+			// lookupTrack: _.debounce(function () {
+			// 	var app = this
+
+			// 	axios.get('http://pokeapi.co/api/v2/pokemon/' + app.pokemons)
+			// 		.then(function (response) {
+			// 			app.pokemon = response.data
+			// 			app.species = response.data.species
+			// 		})
+			// 		.catch(function (error) {
+			// 			alert(error)
+			// 		})
+			// }, 1000),
+			searchArticle: function (term) {
+				var app = this
+				var searchUrl = url
+
+				console.log('clicked')
+
+				axios.get(searchUrl += '?' + $.param({
+					'api-key': "afbbea547c7a452fb7d6cce8307cbb19",
+					'q': term
+				}))
+				.then(function (response) {
+					app.articles = response.data.response.docs
+				})
+			}
+		}
+	});
+</script>
+</body>
+</html>

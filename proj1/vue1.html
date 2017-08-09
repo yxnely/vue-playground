@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+</head>
+<body>
+<br>
+<div id="app" class="container">
+	<div class="row">
+		<h1>Search</h1>
+		 <form class="col s12">
+			<div class="row">
+				<div class="input-field col s6">
+					<input type="text" class="form-control" placeholder="Track Name" v-model="track_name">
+					<label>Track Name</label>
+				</div>
+				<div class="input-field col s6">
+					<input type="text" class="form-control" placeholder="Track Artist" v-model="track_artist">
+					<label>Track Artist</label>
+				</div>
+			</div>
+			<button class="waves-effect waves-light btn" v-on:click.prevent="searchTrack">Submit</button>
+		 </form>
+	</div>
+	
+	<div class="row">
+		<div class="blue-grey col s12 m4" v-show="artists" v-for="(artist, index) in artists">
+			<div class="card-content white-text">
+				<span class="card-title">{{artist.artist.artist_name}}</span>
+				<ol>
+					<li>Rating: {{artist.artist.artist_rating}}</li>
+					<li>Country: {{artist.artist.artist_country}}</li>
+				</ol>
+			</div>
+			<div class="card-action">
+				<a href="#">Twitter</a>
+				<a href="#">Edit</a>
+			</div>
+		</div>
+		<div class="card grey lighten-4 col s12 m4" v-show="tracks" v-for="(track, index) in tracks">
+			<div class="card-image">
+			  <img :src="track.track.album_coverart_100x100">
+			  <span class="card-title">Card Title</span>
+			</div>
+			<div class="card-content black-text">
+				<span class="card-title">{{track.track.artist_name}}</span>
+				<div class="card-content">
+					<p>Album: {{track.track.album_name}}</p>
+					<p v-model="formattedDate(track)"></p>
+					<p v-for="genre in track.track.primary_genres.music_genre_list">
+						{{genre.music_genre_name}}
+					</p>
+				</div>
+			</div>
+			<div class="card-action">
+				<a href="#">Twitter</a>
+				<a href="#">Edit</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+<script>
+	var API_KEY = '&apikey=a8984e24ad9983eb122eaf6c9588dc5b'
+	var ARTIST_SEARCH = 'http://api.musixmatch.com/ws/1.1/artist.search'
+	var TRACK_SEARCH = 'http://api.musixmatch.com/ws/1.1/track.search'
+
+	function createCORSRequest(method, url) {
+		var xhr = new XMLHttpRequest()
+		if ("withCredentials" in xhr) {
+			xhr.open(method, url, true)
+		} else if (typeof XDomainRequest != "undefined") {
+			xhr = new XDomainRequest()
+			xhr.open(method, url)
+		} else {
+			xhr = null
+		}
+
+		return xhr
+	}
+
+	new Vue({
+		el: '#app',
+		data: {
+			track_name: '',
+			track_artist: '',
+			artists: null,
+			tracks: null,
+			date: ''
+		},
+		// watch: {
+		// 	track_name: function () {
+		// 		this.searchSong(this.track_name)
+		// 	}
+		// },
+		methods: {
+			searchTrack: function () {
+				var app = this
+				var params = ''
+
+				if (app.track_artist !== '') {
+					params += ('&q_artist=' + app.track_artist)
+				}
+
+				if (app.track_name !== '') {
+					params += ('&q_track=' + app.track_name)
+				}
+
+				var url = TRACK_SEARCH + '?' + 'page_size=20' + params + API_KEY
+				var xhr = createCORSRequest('GET', url)
+
+				if (!xhr) {
+					alert('CORS not supported')
+					return
+				}
+
+				xhr.onload = function() {
+					var response = JSON.parse(xhr.responseText)
+					app.tracks = response.message.body.track_list
+					console.log(response.message.body.track_list)
+				}
+
+				xhr.onerror = function() {
+					alert('Woops, there was an error making the request.')
+				}
+
+				xhr.send()
+			},
+			searchSong: function () {
+				var app = this
+				var params = ''
+
+				if (app.track_artist !== '') {
+					params += ('&q_artist=' + app.track_artist)
+				}
+
+				var url = ARTIST_SEARCH + '?' + 'page_size=5' + params + API_KEY
+				var xhr = createCORSRequest('GET', url)
+
+				if (!xhr) {
+					alert('CORS not supported')
+					return
+				}
+
+				xhr.onload = function() {
+					var response = JSON.parse(xhr.responseText)
+					app.artists = response.message.body.artist_list
+				}
+
+				xhr.onerror = function() {
+					alert('Woops, there was an error making the request.')
+				}
+
+				xhr.send()
+			},
+			formattedDate: function (elem) {
+				var myDate = new Date(elem.track.first_release_date)
+				var newDate = (myDate.getMonth() + 1) + '/' + myDate.getUTCDate() + myDate.getFullYear()
+
+				return newDate
+			}
+		}
+	});
+</script>
+</body>
+</html>
