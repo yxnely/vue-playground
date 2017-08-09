@@ -39,29 +39,10 @@
 			article_search: '',
 			articles: '',
 		},
-		watch: {
-			// article_search: function () {
-			// 	this.searchArticle(this.article_search)
-			// }
-		},
 		methods: {
-			// lookupTrack: _.debounce(function () {
-			// 	var app = this
-
-			// 	axios.get('http://pokeapi.co/api/v2/pokemon/' + app.pokemons)
-			// 		.then(function (response) {
-			// 			app.pokemon = response.data
-			// 			app.species = response.data.species
-			// 		})
-			// 		.catch(function (error) {
-			// 			alert(error)
-			// 		})
-			// }, 1000),
 			searchArticle: function (term) {
 				var app = this
 				var searchUrl = url
-
-				console.log('clicked')
 
 				axios.get(searchUrl += '?' + $.param({
 					'api-key': "afbbea547c7a452fb7d6cce8307cbb19",
