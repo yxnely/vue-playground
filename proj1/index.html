@@ -24,36 +24,11 @@
 	</div>
 </div>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.1.19/browser.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
-<script>
-	const MM_API_URL = 'http://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=3&q_track=love%20song&apikey=a8984e24ad9983eb122eaf6c9588dc5b';
-
-	var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json"
-
-	new Vue({
-		el: '#app',
-		data: {
-			article_search: '',
-			articles: '',
-		},
-		methods: {
-			searchArticle: function (term) {
-				var app = this
-				var searchUrl = url
-
-				axios.get(searchUrl += '?' + $.param({
-					'api-key': "afbbea547c7a452fb7d6cce8307cbb19",
-					'q': term
-				}))
-				.then(function (response) {
-					app.articles = response.data.response.docs
-				})
-			}
-		}
-	});
-</script>
+<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
