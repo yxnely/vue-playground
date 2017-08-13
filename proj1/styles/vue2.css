@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,500");
+.question {
+  max-width: 350px;
+  font-weight: 500;
+  border: 1px solid #E1E3E2;
+  border-radius: 5px;
+  width: 90%;
+  margin: 20px auto;
+  font-family: 'Raleway', 'Helvetica', 'Arial', sans-serif; }
+  .question > * {
+    border-radius: 4px;
+    padding: 10px 20px; }
+  .question__category-title {
+    background-color: #E1E3E2;
+    color: #222;
+    margin: 0;
+    font-size: 2.5rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; }
+  .question__text, .question__options {
+    text-align: center; }
+  .question__text {
+    font-size: 1.8rem; }
+  .question__options li {
+    border: 1px solid #E1E3E2;
+    border-radius: 50px;
+    padding: 5px 20px;
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 500; }
+    .question__options li:hover, .question__options li:focus, .question__options li.selected {
+      background-color: #E1E3E2;
+      cursor: pointer; }
+  .question button {
+    border-radius: 50px;
+    border: 0;
+    margin: 20px auto 10px;
+    display: block;
+    text-align: center;
+    padding: 5px 20px 7px;
+    line-height: 1; }
+    .question button:hover, .question button.highlight {
+      background-color: #BDBCD0;
+      color: white; }
+
+/*# sourceMappingURL=vue2.css.map */

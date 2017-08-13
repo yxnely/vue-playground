@@ -8,18 +8,30 @@
 </head>
 <body>
 	<div id="app" class="container-fluid">
+		<br>
 		<form>
-			<br>
-			<div class="form-group">
-				<label>Article  Search</label>
-				<input type="text" class="form-control" placeholder="Article Search" :value="article_search" v-model="article_search">
+			<div class="col-xs-4">
+				<div class="form-group">
+					<label>Article Search</label>
+					<input type="text" class="form-control" placeholder="Article Search" :value="article_search" v-model="article_search">
+				</div>
 			</div>
+			<div class="col-xs-4">
+				<label>Sort</label>
+				<select class="form-control" v-model="sort">
+					<option disabled value="">Sort</option>
+					<option value="oldest">Oldest</option>
+					<option value="newest">Newest</option>
+				</select>
+			</div>
+			<br>
 			<button class="btn btn-primary" v-on:click.prevent="searchArticle(article_search)">Search!</button>
 		</form>
 		<br>
 		<div class="panel panel-default" v-show="articles" v-for="(article, index) in articles">
 			<div class="panel-heading"><a v-bind:href="article.web_url" target="_blank">{{article.headline.main}}</a></div>
-			<div class="panel-body" v-html="article.snippet"></div>
+			<div class="panel-body" v-html="article.snippet">
+			</div>
 		</div>
 	</div>
 
@@ -28,6 +40,6 @@
 	<script type="text/javascript" src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
-	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="scripts/main.js"></script>
 </body>
 </html>
