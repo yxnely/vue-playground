@@ -3,6 +3,10 @@
 $theme-color: #E1E3E2;
 $purple: #BDBCD0;
 
+body {
+	font-size: 62.5%;
+}
+
 .question {
 	max-width: 350px;
 	font-weight: 500;
@@ -21,7 +25,7 @@ $purple: #BDBCD0;
 		background-color: $theme-color;
 		color: #222;
 		margin: 0;
-		font-size: 2.5rem;
+		font-size: 2.5em;
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
 	}
@@ -32,7 +36,7 @@ $purple: #BDBCD0;
 	}
 	
 	&__text {
-		font-size: 1.8rem;
+		font-size: 1.8em;
 	}
 	
 	&__options li {
@@ -40,8 +44,9 @@ $purple: #BDBCD0;
 		border-radius: 50px;
 		padding: 5px 20px;
 		display: inline-block;
-		font-size: 1.5rem;
+		font-size: 1.5em;
 		font-weight: 500;
+		margin-bottom: 10px;
 		
 		&:hover,
 		&:focus,
@@ -54,9 +59,10 @@ $purple: #BDBCD0;
 	button {
 		border-radius: 50px;
 		border: 0;
-		margin: 20px auto 10px;
+		margin: 10px auto 10px;
 		display: block;
 		text-align: center;
+		font-size: 1.1em;
 		padding: 5px 20px 7px;
 		line-height: 1;
 		
@@ -65,5 +71,9 @@ $purple: #BDBCD0;
 			background-color: $purple;
 			color: white;
 		}
+	}
+
+	h3 {
+		font-size: 1.3em;
 	}
 }

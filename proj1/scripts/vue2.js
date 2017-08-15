@@ -3,7 +3,7 @@ new Vue({
 	data: {
 		text: 'hi!',
 		userAnswer: '',
-		question: '',
+		question: [],
 		questions: null,
 		options: '',
 		questionType: {
@@ -29,9 +29,10 @@ new Vue({
 		displayQuestion: function () {
 			$('h3').remove()
 			$('.question').children().show()
+			console.log(this.questions[this.counter].question)
 			
 			if (this.questions[this.counter] !== undefined) {
-				this.question = this.questions[this.counter]
+				this.$set(this.question, 0, this.questions[this.counter])
 			}
 			
 			this.counter++
@@ -62,7 +63,8 @@ new Vue({
 				app.correctAnswer = res.results[app.counter].correct_answer
 				app.questions = res.results
 				app.shuffleOptions([...incorrectAnswers, app.correctAnswer])
-				app.displayQuestion()
+				app.question = app.questions[app.counter]
+				app.counter++
 			})
 		},
 		chooseQuestion: function (e) {
