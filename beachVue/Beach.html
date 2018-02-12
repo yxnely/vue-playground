@@ -5,12 +5,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
 	</head>
-<body>
-		<br>
+	<body>
 		<div id="beach" class="container">
-			<h1>Beach Vue</h1>
-			<ul class="collection" v-for="item in thingsToDo">
-				<li class="collection-item">{{ item }}</li>
+			<h1>Beach Activities</h1>
+			<ul class="collection">
+				<li class="collection-item" v-for="activity in activities">
+					<input class="filled-in" type="checkbox" v-bind:id="activity.value" name="beachActivities" v-bind:value="activity.value" />
+					<label class="black-text" v-bind:for="activity.value">{{ activity.text }}</label>
+				</li>
 			</ul>
 		</div>
 	</body>

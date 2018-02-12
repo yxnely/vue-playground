@@ -1,7 +1,28 @@
 const beach = new Vue({
 	el: '#beach',
 	data: {
-		thingsToDo: ['Exercise', 'Tan', 'Swim', 'Picnic', 'Play volleyball'],
+		activities: [
+			{
+				value: 'exercise',
+				text: 'Exercise',
+			},
+			{
+				value: 'tan',
+				text: 'Tan'
+			},
+			{
+				value: 'swim',
+				text: 'Swim'
+			},
+			{
+				value: 'picnic',
+				text: 'Picnic',
+			},
+			{
+				value: 'play volleyball',
+				text: 'Play volleyball',
+			}
+		],
 	},
 	methods: {
 		addActivity(event) {
