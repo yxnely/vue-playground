@@ -10,12 +10,12 @@
 			<h1>Beach Activities</h1>
 			<ul class="collection">
 				<li class="collection-item" v-for="activity in activities">
-					<input class="filled-in" type="checkbox" v-bind:id="activity.value" name="beachActivities" v-bind:value="activity.value" />
-					<label class="black-text" v-bind:for="activity.value">{{ activity.text }}</label>
+					<input class="filled-in" type="checkbox" v-bind:id="activity.id" :key="activity.id" name="beachActivities" v-bind:value="activity.value" v-model="checkedActivities" />
+					<label class="black-text" v-bind:for="activity.id">{{ activity.text }}</label>
 				</li>
 			</ul>
 			<a class="waves-effect waves-light btn red accent-3">Remove</a>
-			<a class="waves-effect waves-light btn blue accent-3">Add</a>
+			<a class="waves-effect waves-light btn blue accent-3" v-on:click="addActivity">Add</a>
 		</div>
 	</body>
 	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
