@@ -35,7 +35,10 @@ const beach = new Vue({
 			console.log(this.checkedActivities);
 		},
 		removeActivity(event) {
-			console.log(event);
+			this.checkedActivities.forEach(a => {
+				const index = this.activities.map(x => x.value).indexOf(a) + 1;
+				
+			})
 		}
 	}
 });

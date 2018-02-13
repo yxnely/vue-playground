@@ -14,8 +14,8 @@
 					<label class="black-text" v-bind:for="activity.id">{{ activity.text }}</label>
 				</li>
 			</ul>
-			<a class="waves-effect waves-light btn red accent-3">Remove</a>
-			<a class="waves-effect waves-light btn blue accent-3" v-on:click="addActivity">Add</a>
+			<a class="waves-effect waves-light btn red accent-3" @click="removeActivity">Remove</a>
+			<a class="waves-effect waves-light btn blue accent-3" @click="addActivity">Add</a>
 		</div>
 	</body>
 	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
