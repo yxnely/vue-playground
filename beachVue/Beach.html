@@ -8,6 +8,13 @@
 	<body>
 		<div id="beach" class="container">
 			<h1>Beach Activities</h1>
+			<div class="row">
+				<div class="input-field col s12">
+					<input placeholder="Add a new activity" id="newActivity" v-model="newActivity" type="text">
+					<label for="newActivity">New Activity</label>
+				</div>
+			</div>
+			<a class="waves-effect waves-light btn blue accent-3" @click="addActivity">Add</a><br><br><br>
 			<ul class="collection">
 				<li class="collection-item" v-for="activity in activities">
 					<input class="filled-in" type="checkbox" v-bind:id="activity.id" :key="activity.id" name="beachActivities" v-bind:value="activity.value" v-model="checkedActivities" />
@@ -15,7 +22,6 @@
 				</li>
 			</ul>
 			<a class="waves-effect waves-light btn red accent-3" @click="removeActivity">Remove</a>
-			<a class="waves-effect waves-light btn blue accent-3" @click="addActivity">Add</a>
 		</div>
 	</body>
 	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
