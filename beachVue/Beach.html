@@ -14,16 +14,29 @@
 			gtag('config', 'UA-114029144-1');
 		</script>
 	</head>
+	<style>
+		a.btn.blue {
+			margin: 0 .75rem;
+		}
+
+		#newActivity {
+			margin-bottom: 1em;
+		}
+	</style>
 	<body>
 		<div id="beach" class="container">
 			<h1>Beach Activities</h1>
-			<div class="row">
-				<div class="input-field col s12">
-					<input placeholder="Add a new activity" id="newActivity" v-model="newActivity" type="text">
-					<label for="newActivity">New Activity</label>
+			<form class="col s12">
+				<div class="row">
+					<div class="input-field col s12">
+						<input placeholder="Add a new activity" id="newActivity" v-model="newActivity" type="text">
+						<label for="newActivity">New Activity</label>
+					</div>
+					<a class="waves-effect waves-light btn blue accent-3" @click="addActivity">Add</a>
 				</div>
-			</div>
-			<a class="waves-effect waves-light btn blue accent-3" @click="addActivity">Add</a><br><br><br>
+				
+			</form>
+			<br><br><br>
 			<ul class="collection">
 				<li class="collection-item" v-for="activity in activities">
 					<input class="filled-in" type="checkbox" v-bind:id="activity.id" :key="activity.id" name="beachActivities" v-bind:value="activity.value" v-model="checkedActivities" />
