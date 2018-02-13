@@ -33,19 +33,13 @@ const beach = new Vue({
 	},
 	methods: {
 		addActivity() {
-			const container = document.querySelector('.collection')
-			const addedInput = document.getElementById('newActivity')
-			const listItem = this.createListItem()
-			const input = this.createInput()
-			const label = this.createLabel()
+			let count = this.activities.length;
+			const newActivityInput = document.getElementById('newActivity')
 
-			listItem.appendChild(input)
-			listItem.appendChild(label)
-
-			container.appendChild(listItem)
-
+			this.activities.push({ id: count, value: this.newActivity.toLowerCase(), text: this.newActivity })
+			
 			// Clear input
-			addedInput.value = ''
+			newActivityInput.value = ''
 		},
 		removeActivity(event) {
 			const amount = 1;
@@ -55,28 +49,5 @@ const beach = new Vue({
 				this.activities.splice(index, amount)
 			})
 		},
-		createListItem() {
-			const el = document.createElement('li')
-
-			el.classList.add('collection-item')
-
-			return el
-		},
-		createInput() {
-			const el = document.createElement('input')
-
-			el.type = 'checkbox'
-			el.value = this.newActivity
-
-			return el
-		},
-		createLabel() {
-			const el = document.createElement('label')
-
-			el.classList.add('black-text')
-			el.innerText = this.newActivity
-
-			return el
-		}
 	}
 });
