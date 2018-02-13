@@ -47,6 +47,8 @@ const beach = new Vue({
 			this.checkedActivities.forEach(a => {
 				const index = this.activities.map(x => x.value).indexOf(a)
 				this.activities.splice(index, amount)
+
+				this.checkedActivities = []
 			})
 		},
 	}
