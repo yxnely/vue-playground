@@ -33,11 +33,11 @@ const beach = new Vue({
 	},
 	methods: {
 		addActivity() {
-			let count = this.activities.length;
+			let index = this.activities.length;
 			const newActivityInput = document.getElementById('newActivity')
 
-			this.activities.push({ id: count, value: this.newActivity.toLowerCase(), text: this.newActivity })
-			
+			this.activities.push({ id: index += 1, value: this.newActivity.toLowerCase(), text: this.newActivity })
+
 			// Clear input
 			newActivityInput.value = ''
 		},
