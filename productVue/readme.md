@@ -4,7 +4,7 @@
 For this playground, I am experimenting with the `watch` option in vue.
 
 ### View In Action
-To play around with it, visit it [here](https://yxnely.github.io/vue-playground/productVue/Product.html).
+To see it in action, visit it [here](https://yxnely.github.io/vue-playground/productVue/Product.html).
 
 ### Tech Deets
 * HTML
