@@ -27,7 +27,7 @@
                 </div>
             </form>
             <p>{{ response }}</p>
-            <ul class="collection">
+            <ul class="collection" v-if="products.length > 0">
                 <li class="collection-item" v-for="product in products">{{ product.name }}</li>
             </ul>
 		</div>
