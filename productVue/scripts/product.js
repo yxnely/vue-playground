@@ -6,12 +6,6 @@ const product = new Vue({
 		question: '',
 		response: '',
 		products: [],
-		selected: 'alphabetical begin',
-		sorting: [
-      { text: 'A - Z', value: 'alphabetical begin' },
-      { text: 'Z - A', value: 'alphabetical end' },
-      { text: 'Popularity', value: 'popularity' }
-    ]
 	},
 	watch: {
 		question(value) {
