@@ -4,7 +4,7 @@
 For this playground, I am experimenting with the `watch` option in vue.
 
 ### Lessons Learned (via Lynda.com)
-## Lifecycle Hooks
+#### Lifecycle Hooks
 * beforeCreate - Triggered before the instance is initialized and any data is processed.
 * Created - Called after the properties are configured, but before the instance has been mounted to the DOM.
 * beforeMount - Called when the template is compiled and ready to be inserted into the DOM.
