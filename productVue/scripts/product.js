@@ -12,6 +12,7 @@ const product = new Vue({
 	},
 	created: function() {
 		console.log('created');
+		this.question = 'products?'
 	},
 	beforeMount: function() {
 		console.log('beforeMount');
@@ -34,11 +35,13 @@ const product = new Vue({
 	watch: {
 		question(value) {
 			if (value.indexOf('products') > -1) {
+				console.log('API Call')
 				this.response = 'Sure, I can list the products for you.'
 				fetch('https://yxnely.github.io/vue-playground/productVue/data/products.json', {
 					method: 'GET'
 				}).then(res => res.json())
 				.then(res => {
+					console.log('API response recieved')
 					this.products = res
 				})
 			} else {
