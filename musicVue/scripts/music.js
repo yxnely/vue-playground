@@ -1,7 +1,7 @@
 Vue.component('music-list', {
     template: '<div class="list">\
     <h2>{{ name }}</h2>\
-    <ul>\
+    <ul class="collection">\
         <music-list-item :spot="spot" v-for="spot in music"></music-list-item>\
     </ul>\
     </div>',
@@ -9,7 +9,7 @@ Vue.component('music-list', {
 })
 
 Vue.component('music-list-item', {
-    template: '<li><p><span>{{ spot.id }}</span> - {{ spot.name }}</p></li>',
+    template: '<li class="collection-item"><p><span>{{ spot.id }}</span> - {{ spot.name }} by {{ spot.artist }}</p></li>',
     props: ['spot']
 })
 
