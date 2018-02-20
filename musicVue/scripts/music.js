@@ -1,27 +1,27 @@
-Vue.component('global-component', {
-    template: '<div>a global component</div>',
+Vue.component('music-list', {
+    template: '<div class="list">\
+    <h2>{{ name }}</h2>\
+    <ul>\
+        <li v-for="spot in music"><p><span>{{ spot.id }}</span> - {{ spot.name }}</p></li>\
+    </ul>\
+    </div>',
+    props: ['name', 'music'],
 })
 
-const LocalComponent = {
-    template: '<div @click="showNum()">a local component. My num is: {{num}}</div>',
-    data() {
-        return {
-            num: Math.random()
-        }
-    },
-    methods: {
-        showNum() {
-            alert(this.num * 100)
-        }
-    }
-}
-
-new Vue({
+const musicApp = new Vue({
 	el: '#app',
 	data: {
-        num: 42
+        musicChart: []
+,    },
+    created() {
+        fetch('https://yxnely.github.io/vue-playground/musicVue/data/music.json', {
+            method: 'GET'
+        }).then(res => res.json())
+        .then(res => {
+            musicApp.musicChart = res
+        })
+        .catch(err => {
+            console.log(err)
+        })
     },
-    components: {
-        'local-component': LocalComponent
-    }
 })
