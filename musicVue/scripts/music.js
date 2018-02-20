@@ -2,10 +2,15 @@ Vue.component('music-list', {
     template: '<div class="list">\
     <h2>{{ name }}</h2>\
     <ul>\
-        <li v-for="spot in music"><p><span>{{ spot.id }}</span> - {{ spot.name }}</p></li>\
+        <music-list-item :spot="spot" v-for="spot in music"></music-list-item>\
     </ul>\
     </div>',
     props: ['name', 'music'],
+})
+
+Vue.component('music-list-item', {
+    template: '<li><p><span>{{ spot.id }}</span> - {{ spot.name }}</p></li>',
+    props: ['spot']
 })
 
 const musicApp = new Vue({
