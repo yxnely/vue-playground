@@ -3,15 +3,25 @@ Vue.component('music-list', {
     <h2>{{ name }}</h2>\
     <slot>Week of 02/20/2018</slot>\
     <ul class="collection">\
-        <music-list-item :spot="spot" v-for="spot in music"></music-list-item>\
+        <music-list-item :spot="spot" v-for="(spot, i) in music" :remove-method="remove.bind(this, i)" :key="music.id"></music-list-item>\
     </ul>\
     </div>',
     props: ['name', 'music'],
+    methods: {
+        remove(i) {
+            this.music.splice(i, 1)
+        }
+    }
 })
 
 Vue.component('music-list-item', {
-    template: '<li class="collection-item"><p><span>{{ spot.id }}</span> - {{ spot.name }} by {{ spot.artist }}</p></li>',
-    props: ['spot']
+    template: '<li class="collection-item">\
+        <p>\
+            <span>{{ spot.id }}</span> - {{ spot.name }} by {{ spot.artist }}\
+        </p>\
+        <a @click="removeMethod">Hide this item</a>\
+    </li>',
+    props: ['spot', 'removeMethod']
 })
 
 const musicApp = new Vue({
