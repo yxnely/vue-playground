@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Product</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114029144-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-114029144-1');
+		</script>
+	</head>
+	<style>
+        #quote {
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b91372+0,6b0f1a+100 */
+            background: #b91372; /* Old browsers */
+            background: -moz-linear-gradient(top, #b91372 0%, #6b0f1a 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, #b91372 0%,#6b0f1a 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, #b91372 0%,#6b0f1a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b91372', endColorstr='#6b0f1a',GradientType=0 ); /* IE6-9 */
+        }
+    </style>
+	<body>
+		<div id="quote" class="container">
+            <p>{{ quote.text }}</p>
+            <span>{{ quote.author }}</span>
+            <button @click="getQuote">click</button>
+		</div>
+	</body>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+	<script type="text/javascript" src="scripts/quote.js"></script>
+</html>
