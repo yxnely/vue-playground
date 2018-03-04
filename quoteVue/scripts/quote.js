@@ -11,7 +11,6 @@ const product = new Vue({
         }).then(res => res.json())
         .then(res => {
             this.quote = res[Math.floor(Math.random() * Math.floor(4))];
-            console.log(this.quote);
         })
 	},
     methods: {},
