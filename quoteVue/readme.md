@@ -1,4 +1,4 @@
-# Product Vue
+# Quote Vue
 
 ### Summary
 For this playground, I am experimenting with the mounting options.
