@@ -1,8 +1,26 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Quotes</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <meta property="og:title" content="Random Life Quote" />
+        <meta property="og:site_name" content="Quotes" />
+        <meta property="og:url" content="https://yxnely.github.io/vue-playground/quoteVue/Quote.html" />
+        <meta property="og:description" content="Get random life quotes generated for you at the push (click) of a button." />
+        <meta property="og:image" content="https://yxnely.github.io/vue-playground/quoteVue/img/quote.png" />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:site" content="@yxnely" />
+        <meta property="twitter:creator" content="@yxnely" />
+        <meta property="twitter:url" content="https://yxnely.github.io/vue-playground/quoteVue/Quote.html" />
+        <meta property="twitter:description" content="Get random life quotes generated for you at the push (click) of a button." />
+        <meta property="twitter:image" content="https://yxnely.github.io/vue-playground/quoteVue/img/quote.png" />
+
+		<title>Quotes</title>
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+        <link rel="shortcut icon" type="image/png" href="https://yxnely.github.io/vue-playground/quoteVue/Quote.html"/>
         <link rel="stylesheet" href="style/main.css">
         <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css"> -->
 		<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -21,7 +39,7 @@
                 <span>&#8212;{{ quote.author }}</span>
             </div>
 
-            <button @click="getNextQuote">random quote</button>
+            <button @click="getNextQuote">get random quote</button>
         </div>
 	</body>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>

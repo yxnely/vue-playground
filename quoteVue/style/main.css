@@ -44,7 +44,7 @@ html, body { height: 100%; }
 }
 
 p {
-    font-size: 3.5rem;
+    font-size: 3rem;
     line-height: 3rem;
     margin-bottom: 1.5rem;
 }
@@ -54,20 +54,17 @@ span {
 }
 
 button {
-    background: #084C61;
-    bottom: 2rem;  
-    border: 1px solid #084C61;
-    border-radius: 3px;
-    color: white;
+    background-color: rgba(226,226,226,0.3);
+    bottom: 2rem;
+    border: 1px solid #DBDBDB;
+    border-radius: 5px;
+    color: #222;
     cursor: pointer;
     display: inline-block;
-    font-size: 1.5rem;
-    line-height: 1.5rem;
     padding: .5rem 1rem;
     position: absolute;
     text-align: center;
-    width: 200px;
-    opacity: .8;
+    width: 175px;
 }
 
 button:hover {
