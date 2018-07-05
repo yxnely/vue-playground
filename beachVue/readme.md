@@ -12,4 +12,4 @@ To see it in action, visit it [here](https://yxnely.github.io/vue-playground/bea
 * Materialize CSS
 * jQuery
 * ES6 Syntax
-* Vue.js (duh)
+* Vue.js
