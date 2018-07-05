@@ -10,6 +10,5 @@ To see it in action, visit it [here](https://yxnely.github.io/vue-playground/bea
 * HTML
 * CSS
 * Materialize CSS
-* jQuery
 * ES6 Syntax
 * Vue.js
